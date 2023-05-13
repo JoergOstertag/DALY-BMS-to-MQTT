@@ -1,0 +1,44 @@
+// Items for DALY-BMS-to-MQTT
+
+// DALY-0
+
+    String DALY_0_Device_IP                    "Device IP"                  { channel="mqtt:topic:DALY_0:Device_IP" }
+    String DALY_0_Pack_BMS_Temperature         "Pack BMS Temperature"       { channel="mqtt:topic:DALY_0:Pack_BMS_Temperature" }
+    String DALY_0_Pack_Balance_Active          "Pack Balance Active"        { channel="mqtt:topic:DALY_0:Pack_Balance_Active" }
+    String DALY_0_Pack_Cell_Difference         "Pack Cell Difference"       { channel="mqtt:topic:DALY_0:Pack_Cell_Difference" }
+    String DALY_0_Pack_Cell_High               "Pack Cell High"             { channel="mqtt:topic:DALY_0:Pack_Cell_High" }
+    Number DALY_0_Pack_Cell_High_Voltage       "Pack Cell High Voltage"     { channel="mqtt:topic:DALY_0:Pack_Cell_High_Voltage" }
+    String DALY_0_Pack_Cell_Low                "Pack Cell Low"              { channel="mqtt:topic:DALY_0:Pack_Cell_Low" }
+    Number DALY_0_Pack_Cell_Low_Voltage        "Pack Cell Low Voltage"      { channel="mqtt:topic:DALY_0:Pack_Cell_Low_Voltage" }
+    String DALY_0_Pack_Cell_Temperature_1      "Pack Cell Temperature 1"    { channel="mqtt:topic:DALY_0:Pack_Cell_Temperature_1" }
+    String DALY_0_Pack_Cells                   "Pack Cells"                 { channel="mqtt:topic:DALY_0:Pack_Cells" }
+    String DALY_0_Pack_Cells_Balance_Cell_1    "Pack Cells Balance Cell 1"  { channel="mqtt:topic:DALY_0:Pack_Cells_Balance_Cell_1" }
+    String DALY_0_Pack_Cells_Balance_Cell_2    "Pack Cells Balance Cell 2"  { channel="mqtt:topic:DALY_0:Pack_Cells_Balance_Cell_2" }
+    String DALY_0_Pack_Cells_Balance_Cell_3    "Pack Cells Balance Cell 3"  { channel="mqtt:topic:DALY_0:Pack_Cells_Balance_Cell_3" }
+    String DALY_0_Pack_Cells_Balance_Cell_4    "Pack Cells Balance Cell 4"  { channel="mqtt:topic:DALY_0:Pack_Cells_Balance_Cell_4" }
+    String DALY_0_Pack_Cells_Balance_Cell_5    "Pack Cells Balance Cell 5"  { channel="mqtt:topic:DALY_0:Pack_Cells_Balance_Cell_5" }
+    String DALY_0_Pack_Cells_Balance_Cell_6    "Pack Cells Balance Cell 6"  { channel="mqtt:topic:DALY_0:Pack_Cells_Balance_Cell_6" }
+    String DALY_0_Pack_Cells_Balance_Cell_7    "Pack Cells Balance Cell 7"  { channel="mqtt:topic:DALY_0:Pack_Cells_Balance_Cell_7" }
+    String DALY_0_Pack_Cells_Balance_Cell_8    "Pack Cells Balance Cell 8"  { channel="mqtt:topic:DALY_0:Pack_Cells_Balance_Cell_8" }
+    Number DALY_0_Pack_Cells_Voltage_Cell_1    "Pack Cells Voltage Cell 1"  { channel="mqtt:topic:DALY_0:Pack_Cells_Voltage_Cell_1" }
+    Number DALY_0_Pack_Cells_Voltage_Cell_2    "Pack Cells Voltage Cell 2"  { channel="mqtt:topic:DALY_0:Pack_Cells_Voltage_Cell_2" }
+    Number DALY_0_Pack_Cells_Voltage_Cell_3    "Pack Cells Voltage Cell 3"  { channel="mqtt:topic:DALY_0:Pack_Cells_Voltage_Cell_3" }
+    Number DALY_0_Pack_Cells_Voltage_Cell_4    "Pack Cells Voltage Cell 4"  { channel="mqtt:topic:DALY_0:Pack_Cells_Voltage_Cell_4" }
+    Number DALY_0_Pack_Cells_Voltage_Cell_5    "Pack Cells Voltage Cell 5"  { channel="mqtt:topic:DALY_0:Pack_Cells_Voltage_Cell_5" }
+    Number DALY_0_Pack_Cells_Voltage_Cell_6    "Pack Cells Voltage Cell 6"  { channel="mqtt:topic:DALY_0:Pack_Cells_Voltage_Cell_6" }
+    Number DALY_0_Pack_Cells_Voltage_Cell_7    "Pack Cells Voltage Cell 7"  { channel="mqtt:topic:DALY_0:Pack_Cells_Voltage_Cell_7" }
+    Number DALY_0_Pack_Cells_Voltage_Cell_8    "Pack Cells Voltage Cell 8"  { channel="mqtt:topic:DALY_0:Pack_Cells_Voltage_Cell_8" }
+    String DALY_0_Pack_ChargeFET               "Pack ChargeFET"             { channel="mqtt:topic:DALY_0:Pack_ChargeFET" }
+    String DALY_0_Pack_Current                 "Pack Current"               { channel="mqtt:topic:DALY_0:Pack_Current" }
+    String DALY_0_Pack_Cycles                  "Pack Cycles"                { channel="mqtt:topic:DALY_0:Pack_Cycles" }
+    String DALY_0_Pack_DischargeFET            "Pack DischargeFET"          { channel="mqtt:topic:DALY_0:Pack_DischargeFET" }
+    String DALY_0_Pack_Heartbeat               "Pack Heartbeat"             { channel="mqtt:topic:DALY_0:Pack_Heartbeat" }
+    String DALY_0_Pack_Power                   "Pack Power"                 { channel="mqtt:topic:DALY_0:Pack_Power" }
+    String DALY_0_Pack_Remaining_mAh           "Pack Remaining mAh"         { channel="mqtt:topic:DALY_0:Pack_Remaining_mAh" }
+    String DALY_0_Pack_SOC                     "Pack SOC"                   { channel="mqtt:topic:DALY_0:Pack_SOC" }
+    String DALY_0_Pack_Status                  "Pack Status"                { channel="mqtt:topic:DALY_0:Pack_Status" }
+    Number DALY_0_Pack_Voltage                 "Pack Voltage"               { channel="mqtt:topic:DALY_0:Pack_Voltage" }
+    String DALY_0_RelaisOutput_Active          "RelaisOutput Active"        { channel="mqtt:topic:DALY_0:RelaisOutput_Active" }
+    String DALY_0_RelaisOutput_Manual          "RelaisOutput Manual"        { channel="mqtt:topic:DALY_0:RelaisOutput_Manual" }
+    String DALY_0_alive                        "alive"                      { channel="mqtt:topic:DALY_0:alive" }
+

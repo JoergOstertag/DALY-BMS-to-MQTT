@@ -1,0 +1,47 @@
+// Things for DALY-BMS-to-MQTT
+
+// DALY-0
+Thing mqtt:topic:DALY_0 "DALY-0" (mqtt:broker:mosquitto) {
+
+  Channels:
+
+    Type string : Device_IP                   "Device IP"                  [ stateTopic="DALY-0/Device_IP"               ]
+    Type string : Pack_BMS_Temperature        "Pack BMS Temperature"       [ stateTopic="DALY-0/Pack_BMS_Temperature"    ]
+    Type string : Pack_Balance_Active         "Pack Balance Active"        [ stateTopic="DALY-0/Pack_Balance_Active"                      ]
+    Type string : Pack_Cell_Difference        "Pack Cell Difference"       [ stateTopic="DALY-0/Pack_Cell_Difference"    ]
+    Type string : Pack_Cell_High              "Pack Cell High"             [ stateTopic="DALY-0/Pack_Cell_High"          ]
+    Type number : Pack_Cell_High_Voltage      "Pack Cell High Voltage"     [ stateTopic="DALY-0/Pack_Cell_High_Voltage", unit="V"          ]
+    Type string : Pack_Cell_Low               "Pack Cell Low"              [ stateTopic="DALY-0/Pack_Cell_Low"           ]
+    Type number : Pack_Cell_Low_Voltage       "Pack Cell Low Voltage"      [ stateTopic="DALY-0/Pack_Cell_Low_Voltage", unit="V"          ]
+    Type string : Pack_Cell_Temperature_1     "Pack Cell Temperature 1"    [ stateTopic="DALY-0/Pack_Cell_Temperature_1" ]
+    Type string : Pack_Cells                  "Pack Cells"                 [ stateTopic="DALY-0/Pack_Cells"              ]
+    Type string : Pack_Cells_Balance_Cell_1   "Pack Cells Balance Cell 1"  [ stateTopic="DALY-0/Pack_Cells_Balance/Cell_1"                      ]
+    Type string : Pack_Cells_Balance_Cell_2   "Pack Cells Balance Cell 2"  [ stateTopic="DALY-0/Pack_Cells_Balance/Cell_2"                      ]
+    Type string : Pack_Cells_Balance_Cell_3   "Pack Cells Balance Cell 3"  [ stateTopic="DALY-0/Pack_Cells_Balance/Cell_3"                      ]
+    Type string : Pack_Cells_Balance_Cell_4   "Pack Cells Balance Cell 4"  [ stateTopic="DALY-0/Pack_Cells_Balance/Cell_4"                      ]
+    Type string : Pack_Cells_Balance_Cell_5   "Pack Cells Balance Cell 5"  [ stateTopic="DALY-0/Pack_Cells_Balance/Cell_5"                      ]
+    Type string : Pack_Cells_Balance_Cell_6   "Pack Cells Balance Cell 6"  [ stateTopic="DALY-0/Pack_Cells_Balance/Cell_6"                      ]
+    Type string : Pack_Cells_Balance_Cell_7   "Pack Cells Balance Cell 7"  [ stateTopic="DALY-0/Pack_Cells_Balance/Cell_7"                      ]
+    Type string : Pack_Cells_Balance_Cell_8   "Pack Cells Balance Cell 8"  [ stateTopic="DALY-0/Pack_Cells_Balance/Cell_8"                      ]
+    Type number : Pack_Cells_Voltage_Cell_1   "Pack Cells Voltage Cell 1"  [ stateTopic="DALY-0/Pack_Cells_Voltage/Cell_1", unit="V"          ]
+    Type number : Pack_Cells_Voltage_Cell_2   "Pack Cells Voltage Cell 2"  [ stateTopic="DALY-0/Pack_Cells_Voltage/Cell_2", unit="V"          ]
+    Type number : Pack_Cells_Voltage_Cell_3   "Pack Cells Voltage Cell 3"  [ stateTopic="DALY-0/Pack_Cells_Voltage/Cell_3", unit="V"          ]
+    Type number : Pack_Cells_Voltage_Cell_4   "Pack Cells Voltage Cell 4"  [ stateTopic="DALY-0/Pack_Cells_Voltage/Cell_4", unit="V"          ]
+    Type number : Pack_Cells_Voltage_Cell_5   "Pack Cells Voltage Cell 5"  [ stateTopic="DALY-0/Pack_Cells_Voltage/Cell_5", unit="V"          ]
+    Type number : Pack_Cells_Voltage_Cell_6   "Pack Cells Voltage Cell 6"  [ stateTopic="DALY-0/Pack_Cells_Voltage/Cell_6", unit="V"          ]
+    Type number : Pack_Cells_Voltage_Cell_7   "Pack Cells Voltage Cell 7"  [ stateTopic="DALY-0/Pack_Cells_Voltage/Cell_7", unit="V"          ]
+    Type number : Pack_Cells_Voltage_Cell_8   "Pack Cells Voltage Cell 8"  [ stateTopic="DALY-0/Pack_Cells_Voltage/Cell_8", unit="V"          ]
+    Type string : Pack_ChargeFET              "Pack ChargeFET"             [ stateTopic="DALY-0/Pack_ChargeFET"          ]
+    Type string : Pack_Current                "Pack Current"               [ stateTopic="DALY-0/Pack_Current"            ]
+    Type string : Pack_Cycles                 "Pack Cycles"                [ stateTopic="DALY-0/Pack_Cycles"             ]
+    Type string : Pack_DischargeFET           "Pack DischargeFET"          [ stateTopic="DALY-0/Pack_DischargeFET"       ]
+    Type string : Pack_Heartbeat              "Pack Heartbeat"             [ stateTopic="DALY-0/Pack_Heartbeat"          ]
+    Type string : Pack_Power                  "Pack Power"                 [ stateTopic="DALY-0/Pack_Power"              ]
+    Type string : Pack_Remaining_mAh          "Pack Remaining mAh"         [ stateTopic="DALY-0/Pack_Remaining_mAh"      ]
+    Type string : Pack_SOC                    "Pack SOC"                   [ stateTopic="DALY-0/Pack_SOC"                ]
+    Type string : Pack_Status                 "Pack Status"                [ stateTopic="DALY-0/Pack_Status"             ]
+    Type number : Pack_Voltage                "Pack Voltage"               [ stateTopic="DALY-0/Pack_Voltage", unit="V"          ]
+    Type string : RelaisOutput_Active         "RelaisOutput Active"        [ stateTopic="DALY-0/RelaisOutput_Active"     ]
+    Type string : RelaisOutput_Manual         "RelaisOutput Manual"        [ stateTopic="DALY-0/RelaisOutput_Manual"     ]
+    Type string : alive                       "alive"                      [ stateTopic="DALY-0/alive"                   ]
+}
