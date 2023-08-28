@@ -34,7 +34,7 @@
     String DALY_0_Pack_DischargeFET            "Pack DischargeFET"          { channel="mqtt:topic:DALY_0:Pack_DischargeFET" }
     String DALY_0_Pack_Heartbeat               "Pack Heartbeat"             { channel="mqtt:topic:DALY_0:Pack_Heartbeat" }
     String DALY_0_Pack_Power                   "Pack Power"                 { channel="mqtt:topic:DALY_0:Pack_Power" }
-    String DALY_0_Pack_Remaining_mAh           "Pack Remaining mAh"         { channel="mqtt:topic:DALY_0:Pack_Remaining_mAh" }
+    String:ElectricCharge DALY_0_Pack_Remaining_mAh           "Pack Remaining mAh"         { channel="mqtt:topic:DALY_0:Pack_Remaining_mAh" }
     String DALY_0_Pack_SOC                     "Pack SOC"                   { channel="mqtt:topic:DALY_0:Pack_SOC" }
     String DALY_0_Pack_Status                  "Pack Status"                { channel="mqtt:topic:DALY_0:Pack_Status" }
     Number DALY_0_Pack_Voltage                 "Pack Voltage"               { channel="mqtt:topic:DALY_0:Pack_Voltage" }

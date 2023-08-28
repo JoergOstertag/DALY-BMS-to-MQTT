@@ -1,140 +1,199 @@
-
 # Daly BMS Configuration
-  sensor:
-    - state_topic: "DALY-0/Pack_Cells_Voltage/Cell_1"
-#      unique_id: 'sensor.Daly0.Voltage.Cell.1'
-      name: "DALY-0 Voltage Cell 1"
-      icon: mdi:sine-wave
-      unit_of_measurement: "V"
-    - state_topic: "DALY-0/Pack_Cells_Voltage/Cell_2"
-      name: "DALY-0 Voltage Cell 2"
-      unit_of_measurement: "V"
-      icon: mdi:sine-wave
-    - state_topic: "DALY-0/Pack_Cells_Voltage/Cell_3"
-      name: "DALY-0 Voltage Cell 3"
-      unit_of_measurement: "V"
-      icon: mdi:sine-wave
-    - state_topic: "DALY-0/Pack_Cells_Voltage/Cell_4"
-      name: "DALY-0 Voltage Cell 4"
-      unit_of_measurement: "V"
-      icon: mdi:sine-wave
-    - state_topic: "DALY-0/Pack_Cells_Voltage/Cell_5"
-      name: "DALY-0 Voltage Cell 5"
-      unit_of_measurement: "V"
-      icon: mdi:sine-wave
-    - state_topic: "DALY-0/Pack_Cells_Voltage/Cell_6"
-      name: "DALY-0 Voltage Cell 6"
-      unit_of_measurement: "V"
-      icon: mdi:sine-wave
-    - state_topic: "DALY-0/Pack_Cells_Voltage/Cell_7"
-      name: "DALY-0 Voltage Cell 7"
-      unit_of_measurement: "V"
-      icon: mdi:sine-wave
-    - state_topic: "DALY-0/Pack_Cells_Voltage/Cell_8"
-      name: "DALY-0 Voltage Cell 8"
-      unit_of_measurement: "V"
-      icon: mdi:sine-wave
-    - state_topic: "DALY-0/Pack_Cells_Balance/Cell_1"
-      name: "DALY-0 Cell Balance 1"
-      icon: mdi:lightning-bolt
-    - state_topic: "DALY-0/Pack_Cells_Balance/Cell_2"
-      name: "DALY-0 Cell Balance 2"
-      icon: mdi:lightning-bolt
-    - state_topic: "DALY-0/Pack_Cells_Balance/Cell_3"
-      name: "DALY-0 Cell Balance 3"
-      icon: mdi:lightning-bolt
-    - state_topic: "DALY-0/Pack_Cells_Balance/Cell_4"
-      name: "DALY-0 Cell Balance 4"
-      icon: mdi:lightning-bolt
-    - state_topic: "DALY-0/Pack_Cells_Balance/Cell_5"
-      name: "DALY-0 Cell Balance 5"
-      icon: mdi:lightning-bolt
-    - state_topic: "DALY-0/Pack_Cells_Balance/Cell_6"
-      name: "DALY-0 Cell Balance 6"
-      icon: mdi:lightning-bolt
-    - state_topic: "DALY-0/Pack_Cells_Balance/Cell_7"
-      name: "DALY-0 Cell Balance 7"
-      icon: mdi:lightning-bolt
-    - state_topic: "DALY-0/Pack_Cells_Balance/Cell_8"
-      name: "DALY-0 Cell Balance 8"
-      icon: mdi:lightning-bolt
-    - state_topic: "DALY-0/Device_IP"
-      name: "DALY-0 IP"
-      icon: mdi:web
-    - state_topic: "DALY-0/Pack_Cells"
-      name: "DALY-0 Pack Cells"
-      icon: mdi:contain
-    - state_topic: "DALY-0/Pack_Power"
-      name: "Daly-0 Akku_Power"
-      unit_of_measurement: 'W'
-    - state_topic: "DALY-0/Pack_Current"
-      name: "DALY-0 Pack Current"
-      icon: mdi:lightning-bolt
-      unit_of_measurement: "A"
-    - state_topic: "DALY-0/Pack_Cycles"
-      name: "DALY-0 Pack Cycles"
-    - state_topic: "DALY-0/Pack_Heartbeat"
-      name: "DALY-0 Pack Heartbeat"
-    - state_topic: "DALY-0/Pack_Remaining_mAh"
-      name: "DALY-0 Remaining mAh"
-      unit_of_measurement: 'mAh'
-    - state_topic: "DALY-0/Pack_SOC"
-      name: "DALY-0 SOC"
-      icon: mdi:battery-high
-      unit_of_measurement: "%"
-      device_class: BATTERY
-    - state_topic: "DALY-0/Pack_Cell_Temperature_1"
-      name: "DALY-0 Temperature 1"
-      unit_of_measurement: "°C"
-      icon: mdi:thermometer
-    - state_topic: "DALY-0/Pack_Voltage"
-      name: "DALY-0 Voltage"
-      unit_of_measurement: "V"
-      icon: mdi:sine-wave
-    - state_topic: "DALY-0/alive"
-      name: "DALY-0 alive"
-    - state_topic: "DALY-0/Pack_Balance_Active"
-      name: "DALY-0 Balance Active"
-    - state_topic: "DALY-0/Pack_Cell_Difference"
-      name: "DALY-0 Cell Difference"
-      unit_of_measurement: "mV"
-      icon: mdi:sine-wave
-    - state_topic: "DALY-0/Pack_Cell_High"
-      name: "DALY-0 Cell High"
-      icon: mdi:sine-wave
-    - state_topic: "DALY-0/Pack_Cell_High_Voltage"
-      name: "DALY-0 Cell High Voltage"
-      unit_of_measurement: "V"
-      icon: mdi:sine-wave
-    - state_topic: "DALY-0/Pack_Cell_Low"
-      name: "DALY-0 Cell Low"
-    - state_topic: "DALY-0/Pack_Cell_Low_Voltage"
-      name: "DALY-0 Cell Low Voltage"
-      unit_of_measurement: "V"
-      icon: mdi:sine-wave
+mqtt:
+ sensor:
+     - state_topic: "DALY-0/Pack_Cells_Voltage/Cell_1"
+       unique_id: 'sensor.daly_0_voltage_cell_1'
+       name: "DALY-0 Voltage Cell 1"
+       icon: mdi:current-dc
+       unit_of_measurement: "V"
+       device_class: "voltage"
 
-  switch:
-    - name: "DALY-0 Charge Switch"
-      state_topic: "DALY-0/Pack_ChargeFET"
-      command_topic: "DALY-0/Pack_ChargeFET"
-      payload_on: "true"
-      payload_off: "false"
-      availability_topic: "DALY-0/Pack_Status"
-      payload_available: "Stationary"
-      payload_not_available: "Offline"
-    - name: "DALY-0 Discharge Switch"
-      state_topic: "DALY-0/Pack_DischargeFET"
-      command_topic: "DALY-0/Pack_DischargeFET"
-      payload_on: "true"
-      payload_off: "false"
-      availability_topic: "DALY-0/Pack_Status"
-      payload_available: "Stationary"
-      payload_not_available: "Offline"
-    - command_topic: "DALY-0/Device_Control/Relais"
-      state_topic: "DALY-0/RelaisOutput_Active"
-      name: "Akku_Balancer"
-      unique_id: 'ID.Akku.Balancer'
-      state_on: "true"
-      state_off: "false"
-      payload_on: "true"
-      payload_off: "false"
+     - state_topic: "DALY-0/Pack_Cells_Voltage/Cell_2"
+       unique_id: 'sensor.daly_0_voltage_cell_2'
+       name: "DALY-0 Voltage Cell 2"
+       unit_of_measurement: "V"
+       icon: mdi:current-dc
+       device_class: "voltage"
+       
+     - state_topic: "DALY-0/Pack_Cells_Voltage/Cell_3"
+       unique_id: 'sensor.daly_0_voltage_cell_3'
+       name: "DALY-0 Voltage Cell 3"
+       unit_of_measurement: "V"
+       icon: mdi:current-dc
+       device_class: "voltage"
+       
+     - state_topic: "DALY-0/Pack_Cells_Voltage/Cell_4"
+       unique_id: 'sensor.daly_0_voltage_cell_4'
+       name: "DALY-0 Voltage Cell 4"
+       unit_of_measurement: "V"
+       icon: mdi:current-dc
+       device_class: "voltage"
+       
+     - state_topic: "DALY-0/Pack_Cells_Voltage/Cell_5"
+       unique_id: 'sensor.daly_0_voltage_cell_5'
+       name: "DALY-0 Voltage Cell 5"
+       unit_of_measurement: "V"
+       icon: mdi:current-dc
+       device_class: "voltage"
+       
+     - state_topic: "DALY-0/Pack_Cells_Voltage/Cell_6"
+       unique_id: 'sensor.daly_0_voltage_cell_6'
+       name: "DALY-0 Voltage Cell 6"
+       unit_of_measurement: "V"
+       icon: mdi:current-dc
+       device_class: "voltage"
+       
+     - state_topic: "DALY-0/Pack_Cells_Voltage/Cell_7"
+       unique_id: 'sensor.daly_0_voltage_cell_7'
+       name: "DALY-0 Voltage Cell 7"
+       unit_of_measurement: "V"
+       icon: mdi:current-dc
+       device_class: "voltage"
+       
+     - state_topic: "DALY-0/Pack_Cells_Voltage/Cell_8"
+       unique_id: 'sensor.daly_0_voltage_cell_8'
+       name: "DALY-0 Voltage Cell 8"
+       unit_of_measurement: "V"
+       icon: mdi:current-dc
+       device_class: "voltage"
+       
+     - state_topic: "DALY-0/Pack_Cells_Balance/Cell_1"
+       name: "DALY-0 Cell Balance 1"
+       icon: mdi:lightning-bolt
+       
+     - state_topic: "DALY-0/Pack_Cells_Balance/Cell_2"
+       name: "DALY-0 Cell Balance 2"
+       icon: mdi:lightning-bolt
+       
+     - state_topic: "DALY-0/Pack_Cells_Balance/Cell_3"
+       name: "DALY-0 Cell Balance 3"
+       icon: mdi:lightning-bolt
+       
+     - state_topic: "DALY-0/Pack_Cells_Balance/Cell_4"
+       name: "DALY-0 Cell Balance 4"
+       icon: mdi:lightning-bolt
+       
+     - state_topic: "DALY-0/Pack_Cells_Balance/Cell_5"
+       name: "DALY-0 Cell Balance 5"
+       icon: mdi:lightning-bolt
+     - state_topic: "DALY-0/Pack_Cells_Balance/Cell_6"
+       name: "DALY-0 Cell Balance 6"
+       icon: mdi:lightning-bolt
+     - state_topic: "DALY-0/Pack_Cells_Balance/Cell_7"
+       name: "DALY-0 Cell Balance 7"
+       icon: mdi:lightning-bolt
+     - state_topic: "DALY-0/Pack_Cells_Balance/Cell_8"
+       name: "DALY-0 Cell Balance 8"
+       icon: mdi:lightning-bolt
+     - state_topic: "DALY-0/Device_IP"
+       name: "DALY-0 IP"
+       icon: mdi:web
+     - state_topic: "DALY-0/Pack_Cells"
+       name: "DALY-0 Pack Cells"
+       icon: mdi:contain
+     - state_topic: "DALY-0/Pack_Power"
+       name: "Daly-0 Akku Power"
+       device_class: "power"
+       unit_of_measurement: 'W'
+     - state_topic: "DALY-0/Pack_Current"
+       name: "DALY-0 Pack Current"
+       icon: mdi:lightning-bolt
+       device_class: "current"
+       unit_of_measurement: "A"
+     - state_topic: "DALY-0/Pack_Cycles"
+       name: "DALY-0 Pack Cycles"
+     - state_topic: "DALY-0/Pack_Heartbeat"
+       name: "DALY-0 Pack Heartbeat"
+     - state_topic: "DALY-0/Pack_Remaining_mAh"
+       icon: mdi:battery-high
+       name: "DALY-0 Remaining mAh"
+       unit_of_measurement: 'mAh'
+     - state_topic: "DALY-0/Pack_SOC"
+       name: "DALY-0 SOC"
+       icon: mdi:battery-high
+       unit_of_measurement: "%"
+       device_class: BATTERY
+     - state_topic: "DALY-0/Pack_Cell_Temperature_1"
+       name: "DALY-0 Temperature 1"
+       unit_of_measurement: "°C"
+       icon: mdi:thermometer
+       device_class: temperature
+     - state_topic: "DALY-0/Pack_Voltage"
+       name: "DALY-0 Voltage"
+       unit_of_measurement: "V"
+       icon: mdi:current-dc
+       device_class: "voltage"
+     - state_topic: "DALY-0/alive"
+       name: "DALY-0 alive"
+     - state_topic: "DALY-0/Pack_Balance_Active"
+       name: "DALY-0 Balance Active"
+     - state_topic: "DALY-0/Pack_Cell_Difference"
+       name: "DALY-0 Cell Difference"
+       unit_of_measurement: "mV"
+       icon: mdi:sine-wave
+     - state_topic: "DALY-0/Pack_Cell_High"
+       name: "DALY-0 Cell High"
+       unit_of_measurement: "mV"
+       icon: mdi:current-dc
+       device_class: "voltage"
+     - state_topic: "DALY-0/Pack_Cell_High_Voltage"
+       name: "DALY-0 Cell High Voltage"
+       unit_of_measurement: "V"
+       icon: mdi:current-dc
+       device_class: "voltage"
+     - state_topic: "DALY-0/Pack_Cell_Low"
+       name: "DALY-0 Cell Low"
+     - state_topic: "DALY-0/Pack_Cell_Low_Voltage"
+       name: "DALY-0 Cell Low Voltage"
+       unit_of_measurement: "V"
+       icon: mdi:current-dc
+       device_class: "voltage"
+
+ switch:
+     - name: "DALY-0 Charge Switch"
+       state_topic: "DALY-0/Pack_ChargeFET"
+       command_topic: "DALY-0/Pack_ChargeFET"
+       payload_on: "true"
+       payload_off: "false"
+       availability_topic: "DALY-0/Pack_Status"
+       payload_available: "Stationary"
+       payload_not_available: "Offline"
+     - name: "DALY-0 Discharge Switch"
+       state_topic: "DALY-0/Pack_DischargeFET"
+       command_topic: "DALY-0/Pack_DischargeFET"
+       payload_on: "true"
+       payload_off: "false"
+       availability_topic: "DALY-0/Pack_Status"
+       payload_available: "Stationary"
+       payload_not_available: "Offline"
+     - command_topic: "DALY-0/Device_Control/Relais"
+       state_topic: "DALY-0/RelaisOutput_Active"
+       name: "Akku Balancer"
+       unique_id: 'ID.Akku.Balancer'
+       state_on: "true"
+       state_off: "false"
+       payload_on: "true"
+       payload_off: "false"
+   
+template:
+  - sensor:
+    - name: "DALY 0 Battery Input"
+      unique_id: 'sensor.daly_0_battery_input'
+      unit_of_measurement: "W"
+      state: >
+        {% if states('sensor.daly_0_akku_power')|float >= 0 %}
+        {{ states('sensor.daly_0_akku_power') }}
+        {% else %}
+        0
+        {% endif %}
+
+    - name: "DALY 0 Battery Output"
+      unique_id: 'sensor.daly_0_battery_output'
+      unit_of_measurement: "W"
+      state: >
+         {% if states('sensor.daly_0_akku_power')|float < 0 %}
+         {{ -1 * states('sensor.daly_0_akku_power')|float }}
+         {% else %}
+         0
+         {% endif %}
+   
