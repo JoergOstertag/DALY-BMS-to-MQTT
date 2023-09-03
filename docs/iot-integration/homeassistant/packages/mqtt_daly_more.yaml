@@ -1,0 +1,62 @@
+# Daly BMS Configuration
+
+sensor:
+  - platform: integration
+    source: sensor.battery_input
+    name: Battery Load
+    unique_id: battery_load
+    unit_prefix: k
+    method: left
+#    device_class: energy
+    round: 2
+
+  - platform: integration
+    source: sensor.battery_output
+    name: Battery Unload
+    unique_id: battery_unload
+    unit_prefix: k
+    method: left
+#    device_class: energy
+    round: 2
+
+
+utility_meter:
+  daly_0_load_daily:
+    source: sensor.battery_load
+    name: DALY-0 Load Täglich
+    cycle: daily
+
+  daly_0_load_weekly:
+    source: sensor.battery_load
+    name: DALY-0 Load Wöchentlich
+    cycle: weekly
+
+  daly_0_load_monthly:
+    source: sensor.battery_load
+    name: DALY-0 Load Monatlich
+    cycle: monthly
+
+  daly_0_load_yearly:
+    source: sensor.battery_load
+    name: DALY-0 Load Jährlich
+    cycle: yearly
+
+  daly_0_unload_daily:
+    source: sensor.battery_unload
+    name: DALY-0 Unload Täglich
+    cycle: daily
+    
+  daly_0_unload_weekly:
+    source: sensor.battery_unload
+    name: DALY-0 Unload Wöchentlich
+    cycle: weekly
+
+  daly_0_unload_monthly:
+    source: sensor.battery_unload
+    name: DALY-0 Unload Monatlich
+    cycle: monthly
+
+  daly_0_unload_yearly:
+    source: sensor.battery_unload
+    name: DALY-0 Unload Jährlich
+    cycle: yearly
