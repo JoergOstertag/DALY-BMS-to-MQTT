@@ -1,8 +1,6 @@
 /*
-DALY BMS to MQTT Project
-https://github.com/softwarecrash/DALY-BMS-to-MQTT
-This code is free for use without any waranty.
-when copy code or reuse make a note where the codes comes from.
+DALY2MQTT Project
+https://github.com/softwarecrash/DALY2MQTT
 */
 #include "SoftwareSerial.h"
 #ifndef DALY_BMS_UART_H
@@ -17,10 +15,11 @@ when copy code or reuse make a note where the codes comes from.
 #define START_BYTE 0xA5; // Start byte
 #define HOST_ADRESS 0x40; // Host address
 #define FRAME_LENGTH 0x08; // Length
+#define ERRORCOUNTER 10 //number of try befor clear data
 
 //time in ms for delay the bms requests, to fast brings connection error
 
-#define DELAYTINME 150
+#define DELAYTINME 100
 
 // DON'T edit DEBUG here, edit build_type in platformio.ini !!!
 #ifdef isDEBUG
@@ -29,8 +28,6 @@ when copy code or reuse make a note where the codes comes from.
 #endif
 
 #ifdef DEBUG_SERIAL
-//make it better like
-//https://stackoverflow.com/questions/28931195/way-to-toggle-debugging-code-on-and-off
 #define BMS_DEBUG_BEGIN(...) DEBUG_SERIAL.begin(__VA_ARGS__)
 #define BMS_DEBUG_PRINT(...) DEBUG_SERIAL.print(__VA_ARGS__)
 #define BMS_DEBUG_WEB(...) WebSerial.print(__VA_ARGS__)
@@ -55,16 +52,18 @@ when copy code or reuse make a note where the codes comes from.
 #define BMS_DEBUG_WEBLN(...)
 #endif
 
-class Daly_BMS_UART
+class DalyBms
 {
 public:
-    unsigned int previousTime = 0;
+    unsigned long previousTime = 0;
     byte requestCounter = 0;
     int soft_tx;
     int soft_rx;
+    String failCodeArr;
 
     enum COMMAND
     {
+        CELL_THRESHOLDS = 0x59,
         VOUT_IOUT_SOC = 0x90,
         MIN_MAX_CELL_VOLTAGE = 0x91,
         MIN_MAX_TEMPERATURE = 0x92,
@@ -88,6 +87,12 @@ public:
      */
     struct
     {
+        // data from 0x59
+        float maxCellThreshold1; // Level-1 alarm threshold for High Voltage in Millivolts
+        float minCellThreshold1; // Level-1 alarm threshold for low Voltage in Millivolts
+        float maxCellThreshold2; // Level-2 alarm threshold for High Voltage in Millivolts
+        float minCellThreshold2; // Level-2 alarm threshold for low Voltage in Millivolts
+
         // data from 0x90
         float packVoltage; // pressure (0.1 V)
         float packCurrent; // acquisition (0.1 V)
@@ -137,11 +142,11 @@ public:
      * @brief alarm struct holds booleans corresponding to all the possible alarms
      * (aka errors/warnings) the BMS can report
      */
-
+/*
     struct
     {
         // data from 0x98
-        /* 0x00 */
+        // 0x00 
         bool levelOneCellVoltageTooHigh;
         bool levelTwoCellVoltageTooHigh;
         bool levelOneCellVoltageTooLow;
@@ -151,7 +156,7 @@ public:
         bool levelOnePackVoltageTooLow;
         bool levelTwoPackVoltageTooLow;
 
-        /* 0x01 */
+        // 0x01 
         bool levelOneChargeTempTooHigh;
         bool levelTwoChargeTempTooHigh;
         bool levelOneChargeTempTooLow;
@@ -161,7 +166,7 @@ public:
         bool levelOneDischargeTempTooLow;
         bool levelTwoDischargeTempTooLow;
 
-        /* 0x02 */
+        // 0x02 
         bool levelOneChargeCurrentTooHigh;
         bool levelTwoChargeCurrentTooHigh;
         bool levelOneDischargeCurrentTooHigh;
@@ -171,13 +176,13 @@ public:
         bool levelOneStateOfChargeTooLow;
         bool levelTwoStateOfChargeTooLow;
 
-        /* 0x03 */
+        // 0x03 
         bool levelOneCellVoltageDifferenceTooHigh;
         bool levelTwoCellVoltageDifferenceTooHigh;
         bool levelOneTempSensorDifferenceTooHigh;
         bool levelTwoTempSensorDifferenceTooHigh;
 
-        /* 0x04 */
+        // 0x04 
         bool chargeFETTemperatureTooHigh;
         bool dischargeFETTemperatureTooHigh;
         bool failureOfChargeFETTemperatureSensor;
@@ -187,7 +192,7 @@ public:
         bool failureOfChargeFETTBreaker;
         bool failureOfDischargeFETBreaker;
 
-        /* 0x05 */
+        // 0x05 
         bool failureOfAFEAcquisitionModule;
         bool failureOfVoltageSensorModule;
         bool failureOfTemperatureSensorModule;
@@ -197,19 +202,20 @@ public:
         bool failureOfVehicleCommunicationModule;
         bool failureOfIntranetCommunicationModule;
 
-        /* 0x06 */
+        // 0x06 
         bool failureOfCurrentSensorModule;
         bool failureOfMainVoltageSensorModule;
         bool failureOfShortCircuitProtection;
         bool failureOfLowVoltageNoCharging;
     } alarm;
+*/
 
     /**
-     * @brief Construct a new Daly_BMS_UART object
+     * @brief Construct a new DalyBms object
      *
      * @param serialIntf UART interface BMS is connected to
      */
-    Daly_BMS_UART(int rx, int tx);
+    DalyBms(int rx, int tx);
 
     /**
      * @brief Initializes this driver
@@ -220,13 +226,32 @@ public:
     /**
      * @brief Updating the Data from the BMS
      */
-    bool update();
+    //bool update();
+
+    /**
+     * @brief put it in lopp
+     * 
+     */
+    bool loop();
+
+    /**
+     * @brief callback function
+     *
+     */
+    void callback(std::function<void()> func);
+    std::function<void()> requestCallback;
 
     /**
      * @brief Gets Voltage, Current, and SOC measurements from the BMS
      * @return True on successful aquisition, false otherwise
      */
     bool getPackMeasurements();
+
+    /**
+     * @brief Gets Voltage thresholds 
+     * @return True on successful aquisition, false otherwise
+     */
+    bool getVoltageThreshold();
 
     /**
      * @brief Gets the pack temperature from the min and max of all the available temperature sensors
@@ -322,16 +347,11 @@ public:
      */
     bool getState();
 
-    /**
-     * @brief callback function
-     * 
-     */
-    void callback(std::function<void()> func);
-    std::function<void()> requestCallback;
-
 private:
+    bool getStaticData = false;
     unsigned int errorCounter = 0;
     unsigned int requestCount = 0;
+    unsigned int commandQueue[5] = {0x100, 0x100, 0x100, 0x100, 0x100};
     /**
      * @brief send the command id, and return true if data complete read or false by crc error
      * @details calculates the checksum and sends the command over the specified serial connection
@@ -342,7 +362,12 @@ private:
      * @brief Sends a complete packet with the specified command
      * @details calculates the checksum and sends the command over the specified serial connection
      */
-    void sendCommand(COMMAND cmdID);
+    bool sendCommand(COMMAND cmdID);
+
+    /**
+     * @brief command queue
+     */
+    bool sendQueueAdd(COMMAND cmdID);
 
     /**
      * @brief Send the command ID to the BMS
